@@ -1,21 +1,21 @@
-import './WebChat.css';
-
 import { Components } from 'botframework-webchat';
 import { memo } from 'react';
 
 import useDirectLineJSBotConnection from '../directLine/useDirectLineJSBotConnection';
 import useWebChatStore from '../directLine/useWebChatStore';
+import hostConfig from './AdaptiveCardsHostConfig';
+import WizardExperience from './WizardExperience';
 
-const { BasicWebChat, Composer } = Components;
+const { Composer } = Components;
 
-export default memo(function Chat() {
+export default memo(function Wizard() {
   const [directLine] = useDirectLineJSBotConnection();
   const [store] = useWebChatStore();
 
   return (
-    <div className="chat">
-      <Composer directLine={directLine} store={store}>
-        <BasicWebChat />
+    <div>
+      <Composer adaptiveCardsHostConfig={hostConfig} directLine={directLine} store={store}>
+        <WizardExperience />
       </Composer>
     </div>
   );

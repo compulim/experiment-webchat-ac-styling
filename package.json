@@ -17,9 +17,11 @@
     "start": "npm run build -- --servedir=./public"
   },
   "dependencies": {
+    "adaptivecards": "^3.0.2",
     "botframework-webchat": "^4.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-wrap-with": "^0.0.4",
     "use-ref-from": "^0.0.3",
     "use-state-with-ref": "^0.0.1"
   },

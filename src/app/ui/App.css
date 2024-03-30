@@ -1,15 +1,35 @@
 .app {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   box-sizing: border-box;
   display: grid;
   gap: 10px;
+  grid-template-rows: 2em 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   height: 100%;
   padding: 10px;
 }
 
+.app__top-nav {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  gap: 10px;
+  grid-column: span 2;
+}
+
+.app__transcript {
+  grid-row: span 2;
+}
+
 .app__pane {
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .05);
   overflow: hidden;
+}
+
+.app__pane:not(.app__top-nav) {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.app__wizard {
+  overflow-y: auto;
 }
