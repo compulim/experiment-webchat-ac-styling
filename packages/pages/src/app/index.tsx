@@ -1,7 +1,4 @@
 import './index.css';
-import './AdaptiveCards3.css';
-// import './AdaptiveCards2.css';
-// import './AdaptiveCards.css';
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
