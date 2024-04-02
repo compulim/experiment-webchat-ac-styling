@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { AdaptiveCardDriver } from 'copilot-studio-adaptive-card-driver';
+import { AdaptiveCardPlayer } from 'copilot-studio-adaptive-card-player';
 import useDirectLineJSBotConnection from '../directLine/useDirectLineJSBotConnection';
 import useWebChatStore from '../directLine/useWebChatStore';
 
@@ -8,5 +8,5 @@ export default memo(function Wizard() {
   const [directLine] = useDirectLineJSBotConnection();
   const [store] = useWebChatStore();
 
-  return <AdaptiveCardDriver directLine={directLine} store={store} />;
+  return <AdaptiveCardPlayer directLine={directLine} store={store} />;
 });

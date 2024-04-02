@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 
 const className = css({
-  '&.copilot-studio__adaptive-card-driver.copilot-studio__adaptive-card-driver--customized': {
+  '&.copilot-studio__adaptive-card-player.copilot-studio__adaptive-card-player--customized': {
     fontFamily:
       "'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif",
     '& button': { fontFamily: 'inherit' },

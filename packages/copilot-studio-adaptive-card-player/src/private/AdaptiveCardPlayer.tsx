@@ -3,7 +3,7 @@ import { Components } from 'botframework-webchat';
 import { hooks } from 'botframework-webchat-api';
 import { type DirectLineJSBotConnection, type WebChatActivity, type createStore } from 'botframework-webchat-core';
 import React, { memo, useMemo } from 'react';
-import CLASS_NAME from './AdaptiveCardDriver.className';
+import CLASS_NAME from './AdaptiveCardPlayer.className';
 import HOST_CONFIG from './AdaptiveCardsHostConfig';
 import buildChatCard from './buildChatCard';
 
@@ -12,7 +12,7 @@ const { useActivities } = hooks;
 
 type Props = {
   directLine: DirectLineJSBotConnection;
-  store: ReturnType<typeof createStore>;
+  store?: ReturnType<typeof createStore> | undefined;
 };
 
 const _ = () => {
@@ -38,7 +38,7 @@ const _ = () => {
   return card && <AdaptiveCardContent content={card} />;
 };
 
-export default memo(function CardDriver({ directLine, store }: Props) {
+export default memo(function AdaptiveCardPlayer({ directLine, store }: Props) {
   const props = {
     adaptiveCardsHostConfig: HOST_CONFIG,
     directLine,
@@ -48,7 +48,7 @@ export default memo(function CardDriver({ directLine, store }: Props) {
   return (
     <div
       className={cx(
-        'copilot-studio__adaptive-card-driver copilot-studio__adaptive-card-driver--customized',
+        'copilot-studio__adaptive-card-player copilot-studio__adaptive-card-player--customized',
         CLASS_NAME
       )}
     >

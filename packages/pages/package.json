@@ -1,5 +1,5 @@
 {
-  "name": "copilot-studio-adaptive-card-driver-pages",
+  "name": "copilot-studio-adaptive-card-player-pages",
   "version": "0.0.0-0",
   "description": "",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "localPeerDependencies": {
-    "copilot-studio-adaptive-card-driver": "^0.0.0-0"
+    "copilot-studio-adaptive-card-player": "^0.0.0-0"
   },
   "switch:react:16": {
     "devDependencies": {
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "botframework-webchat": "^4.16.0",
-    "copilot-studio-adaptive-card-driver": "^0.0.0-0",
+    "copilot-studio-adaptive-card-player": "^0.0.0-0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "use-ref-from": "^0.1.0",

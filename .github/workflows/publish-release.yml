@@ -13,5 +13,5 @@ jobs:
     secrets: inherit
     uses: compulim/workflows/.github/workflows/publish-release.yml@main
     with:
-      package-name: copilot-studio-adaptive-card-driver
+      package-name: copilot-studio-adaptive-card-player
       tag: ${{ github.ref_name }}

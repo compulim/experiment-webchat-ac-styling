@@ -6,12 +6,12 @@ import useAppReducer from '../data/useAppReducer';
 import DirectLineProvider from '../directLine/DirectLineProvider';
 import ActivityInput from './ActivityInput';
 import ActivityMonitor from './ActivityMonitor';
-import AdaptiveCardDriverHost from './AdaptiveCardDriverHost';
+import AdaptiveCardPlayerHost from './AdaptiveCardPlayerHost';
 import WebChat from './WebChat';
 
 export default memo(function App() {
   const [{ activitiesJSON }, { setActivitiesJSON }] = useAppReducer();
-  const [type, setType] = useState<'emulator' | 'mockbot'>('emulator');
+  const [type, setType] = useState<'emulator' | 'mockbot' | 'abs'>('emulator');
 
   const handleTypeInput = useCallback<FormEventHandler<HTMLInputElement>>(
     ({ currentTarget: { value } }) => setType(value === 'mockbot' ? 'mockbot' : 'emulator'),
@@ -40,7 +40,7 @@ export default memo(function App() {
           )}
         </div>
         <div className="app2 app3 app__pane app__wizard">
-          <AdaptiveCardDriverHost />
+          <AdaptiveCardPlayerHost />
         </div>
         <div className="app__pane base-102 x-baseCard-103 content-223 quickLookCard-111">
           <WebChat />

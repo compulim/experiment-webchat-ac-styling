@@ -1,12 +1,12 @@
 {
-  "name": "copilot-studio-adaptive-card-driver-root",
+  "name": "copilot-studio-adaptive-card-player-root",
   "version": "0.0.0-0",
   "description": "",
   "private": true,
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "workspaces": [
-    "packages/copilot-studio-adaptive-card-driver",
+    "packages/copilot-studio-adaptive-card-player",
     "packages/pages",
     "packages/integration-test"
   ],
