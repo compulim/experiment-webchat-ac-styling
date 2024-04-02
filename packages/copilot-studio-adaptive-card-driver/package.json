@@ -3,7 +3,7 @@
   "version": "0.0.0-0",
   "description": "",
   "files": [
-    "./lib/"
+    "./dist/"
   ],
   "exports": {
     "./x": {
