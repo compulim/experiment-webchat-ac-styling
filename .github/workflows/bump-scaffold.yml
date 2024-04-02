@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       package-name:
-        default: react-chain-of-responsibility
+        default: copilot-studio-adaptive-card-driver
         description: Name of the package
         required: true
         type: string

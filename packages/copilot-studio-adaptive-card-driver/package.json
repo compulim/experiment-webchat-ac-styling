@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/compulim/react-chain-of-responsibility.git"
+    "url": "git+https://github.com/compulim/copilot-studio-adaptive-card-driver.git"
   },
   "keywords": [
     "react",
@@ -55,9 +55,9 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/compulim/react-chain-of-responsibility/issues"
+    "url": "https://github.com/compulim/copilot-studio-adaptive-card-driver/issues"
   },
-  "homepage": "https://github.com/compulim/react-chain-of-responsibility#readme",
+  "homepage": "https://github.com/compulim/copilot-studio-adaptive-card-driver#readme",
   "switch:react:16": {
     "devDependencies": {
       "@testing-library/react": "^12",

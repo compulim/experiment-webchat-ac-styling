@@ -17,4 +17,4 @@ jobs:
     secrets: inherit
     uses: compulim/workflows/.github/workflows/continuous-deployment.yml@main
     with:
-      package-name: react-chain-of-responsibility
+      package-name: copilot-studio-adaptive-card-driver
