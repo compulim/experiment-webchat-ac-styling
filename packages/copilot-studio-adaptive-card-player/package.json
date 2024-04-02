@@ -1,6 +1,6 @@
 {
   "name": "copilot-studio-adaptive-card-player",
-  "version": "0.0.0-0",
+  "version": "0.2.0-0",
   "description": "Adaptive Card player for Copilot Studio bots.",
   "files": [
     "./dist/"

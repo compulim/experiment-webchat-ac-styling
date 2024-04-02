@@ -4,10 +4,12 @@ import React, { memo, useEffect, useState } from 'react';
 import AdaptiveCardPlayer from './AdaptiveCardPlayer';
 
 type Props = {
+  firstOutgoingMessage?: string | undefined;
   tokenURL: string;
 };
 
 const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerWithAzureBotServices({
+  firstOutgoingMessage,
   tokenURL
 }: Props) {
   const [directLine, setDirectLine] = useState<ReturnType<typeof createDirectLine> | undefined>(undefined);
@@ -37,10 +39,22 @@ const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerW
                 name: 'startConversation',
                 type: 'event'
               } as any)
-              .subscribe();
+              .subscribe({
+                next() {
+                  firstOutgoingMessage &&
+                    directLine
+                      .postActivity({
+                        localTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                        locale: navigator.language,
+                        text: firstOutgoingMessage,
+                        type: 'message'
+                      } as any)
+                      .subscribe();
 
-            // Only send the event once, unsubscribe after the event is sent.
-            subscription.unsubscribe();
+                  // Only send the event once, unsubscribe after the event is sent.
+                  subscription.unsubscribe();
+                }
+              });
           }
         }
       });
