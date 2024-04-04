@@ -1,6 +1,6 @@
 {
   "name": "copilot-studio-adaptive-card-player",
-  "version": "0.2.0-0",
+  "version": "0.4.0-0",
   "description": "Adaptive Card player for Copilot Studio bots.",
   "files": [
     "./dist/"
@@ -21,7 +21,7 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "npm run build:dist && npm run build:pages",
-    "build:dist": "tsup --dts --format cjs,esm --target chrome100 ./src/index.ts",
+    "build:dist": "tsup --dts --format cjs,esm --target es2015 ./src/index.ts",
     "build:pages": "esbuild --bundle --define:process.env.TOKEN_URL=\\\"$TOKEN_URL\\\" --entry-names=[name]/[ext]/main --jsx=automatic --minify --outdir=./public/static/ --sourcemap app=./pages/app/index.tsx",
     "bump": "npm run bump:prod && npm run bump:dev && npm run bump:auditfix",
     "bump:auditfix": "npm audit fix || exit 0",
