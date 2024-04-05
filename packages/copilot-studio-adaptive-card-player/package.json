@@ -18,6 +18,7 @@
     }
   },
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "npm run build:dist && npm run build:pages",
