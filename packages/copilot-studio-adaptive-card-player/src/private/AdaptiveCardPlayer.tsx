@@ -35,7 +35,7 @@ const _ = () => {
     return card ? card.content : firstBotMessageActivity && buildChatCard(firstBotMessageActivity);
   }, [firstBotMessageActivity]);
 
-  return card && <AdaptiveCardContent content={card} />;
+  return !!card ? <AdaptiveCardContent content={card} /> : null;
 };
 
 export default memo(function AdaptiveCardPlayer({ directLine, store }: Props) {
