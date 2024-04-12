@@ -5,26 +5,30 @@ import AdaptiveCardPlayer from './AdaptiveCardPlayer';
 
 type Props = {
   firstOutgoingMessage?: string | undefined;
-  tokenURL: string;
-};
+} & ({ token: string } | { tokenURL: string });
 
-const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerWithAzureBotServices({
-  firstOutgoingMessage,
-  tokenURL
-}: Props) {
+const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerWithAzureBotServices(props: Props) {
+  const { firstOutgoingMessage } = props;
   const [directLine, setDirectLine] = useState<ReturnType<typeof createDirectLine> | undefined>(undefined);
 
   useEffect(() => {
     const abortController = new AbortController();
 
     (async function () {
-      const res = await fetch(tokenURL, { headers: { accept: 'application/json' } });
+      let token: string;
 
-      if (!res.ok) {
-        return;
+      if ('token' in props) {
+        token = props.token;
+      } else {
+        const res = await fetch(props.tokenURL, { headers: { accept: 'application/json' } });
+
+        if (!res.ok) {
+          return;
+        }
+
+        ({ token } = await res.json());
       }
 
-      const { token } = await res.json();
       const directLine = createDirectLine({ token });
 
       setDirectLine(directLine);
@@ -38,6 +42,7 @@ const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerW
                 locale: navigator.language,
                 name: 'startConversation',
                 type: 'event'
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } as any)
               .subscribe({
                 next() {
@@ -48,6 +53,7 @@ const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerW
                         locale: navigator.language,
                         text: firstOutgoingMessage,
                         type: 'message'
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       } as any)
                       .subscribe();
 
