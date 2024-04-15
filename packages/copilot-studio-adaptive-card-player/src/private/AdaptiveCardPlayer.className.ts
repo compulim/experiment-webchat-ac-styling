@@ -82,6 +82,7 @@ const className = css({
       boxShadow: 'black 0px 0px 0px 1px inset',
       outline: 'black auto 1px'
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     '& .ac-actionSet': { flexDirection: 'column !important' as any },
     '& .ac-actionSet .ac-pushButton': { height: '32px' },
     '& .ac-actionSet .ac-pushButton:not(:last-of-type)': {
