@@ -1,7 +1,7 @@
 import './WebChat.css';
 
 import { Components } from 'botframework-webchat';
-import { memo } from 'react';
+import React, { memo } from 'react';
 
 import useDirectLineJSBotConnection from '../directLine/useDirectLineJSBotConnection';
 import useWebChatStore from '../directLine/useWebChatStore';

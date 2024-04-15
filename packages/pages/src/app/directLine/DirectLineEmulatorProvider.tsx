@@ -1,6 +1,6 @@
 import { createStore } from 'botframework-webchat';
 import { type WebChatActivity } from 'botframework-webchat-core';
-import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
+import React, { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import useAppReducer from '../data/useAppReducer';
 import createDirectLineEmulator from '../util/createDirectLineEmulator';

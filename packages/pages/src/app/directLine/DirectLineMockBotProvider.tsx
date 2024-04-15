@@ -1,5 +1,5 @@
 import { createDirectLine, createStore } from 'botframework-webchat';
-import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
+import React, { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import Context from './private/Context';
 

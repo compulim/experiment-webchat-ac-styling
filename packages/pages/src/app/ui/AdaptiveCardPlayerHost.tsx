@@ -1,6 +1,6 @@
-import { memo } from 'react';
-
 import { AdaptiveCardPlayer } from 'copilot-studio-adaptive-card-player';
+import React, { memo } from 'react';
+
 import useDirectLineJSBotConnection from '../directLine/useDirectLineJSBotConnection';
 import useWebChatStore from '../directLine/useWebChatStore';
 
