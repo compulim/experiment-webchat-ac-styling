@@ -1,4 +1,4 @@
-import React, { memo, type ReactNode } from 'react';
+import { memo, type ReactNode } from 'react';
 
 import DirectLineEmulatorProvider from './DirectLineEmulatorProvider';
 import DirectLineMockBotProvider from './DirectLineMockBotProvider';
