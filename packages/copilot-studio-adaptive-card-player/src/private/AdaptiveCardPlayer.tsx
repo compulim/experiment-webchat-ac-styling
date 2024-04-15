@@ -2,7 +2,7 @@ import { cx } from '@emotion/css';
 import { Components } from 'botframework-webchat';
 import { hooks } from 'botframework-webchat-api';
 import { type DirectLineJSBotConnection, type WebChatActivity, type createStore } from 'botframework-webchat-core';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import CLASS_NAME from './AdaptiveCardPlayer.className';
 import HOST_CONFIG from './AdaptiveCardsHostConfig';
 import buildChatCard from './buildChatCard';
@@ -12,10 +12,11 @@ const { useActivities } = hooks;
 
 type Props = {
   directLine: DirectLineJSBotConnection;
+  onFirstRender?: (() => void) | undefined;
   store?: ReturnType<typeof createStore> | undefined;
 };
 
-const _ = () => {
+const _ = (props: Pick<Props, 'onFirstRender'>) => {
   const [activities] = useActivities();
 
   const firstBotMessageActivity = useMemo<(WebChatActivity & { type: 'message' }) | undefined>(
@@ -35,10 +36,16 @@ const _ = () => {
     return card ? card.content : firstBotMessageActivity && buildChatCard(firstBotMessageActivity);
   }, [firstBotMessageActivity]);
 
-  return !!card ? <AdaptiveCardContent content={card} /> : null;
+  useEffect(() => {
+    if (!!card && !!props.onFirstRender) {
+      props.onFirstRender();
+    }
+  }, [card]);
+
+  return card ? <AdaptiveCardContent content={card} /> : null;
 };
 
-export default memo(function AdaptiveCardPlayer({ directLine, store }: Props) {
+export default memo(function AdaptiveCardPlayer({ directLine, store, onFirstRender }: Props) {
   const props = {
     adaptiveCardsHostConfig: HOST_CONFIG,
     directLine,
@@ -53,7 +60,7 @@ export default memo(function AdaptiveCardPlayer({ directLine, store }: Props) {
       )}
     >
       <Composer {...props}>
-        <_ />
+        <_ onFirstRender={onFirstRender} />
       </Composer>
     </div>
   );

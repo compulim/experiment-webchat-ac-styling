@@ -2,7 +2,7 @@ import './ActivityInput.css';
 
 import { Components, hooks } from 'botframework-webchat';
 import { type WebChatActivity } from 'botframework-webchat-core';
-import { memo, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import useDirectLineJSBotConnection from '../directLine/useDirectLineJSBotConnection';
 import useWebChatStore from '../directLine/useWebChatStore';
@@ -10,7 +10,7 @@ import useWebChatStore from '../directLine/useWebChatStore';
 const { useActivities } = hooks;
 const { Composer } = Components;
 
-const ActivityMonitor = memo(function ActivityMonitor() {
+const ActivityMonitor_ = memo(function ActivityMonitor_() {
   const [activities] = useActivities();
 
   const firstBotMessageActivity = useMemo<(WebChatActivity & { type: 'message' }) | undefined>(
@@ -44,13 +44,13 @@ const ActivityMonitor = memo(function ActivityMonitor() {
   );
 });
 
-export default memo(function () {
+export default memo(function ActivityMonitor() {
   const [directLine] = useDirectLineJSBotConnection();
   const [store] = useWebChatStore();
 
   return (
     <Composer directLine={directLine} store={store}>
-      <ActivityMonitor />
+      <ActivityMonitor_ />
     </Composer>
   );
 });

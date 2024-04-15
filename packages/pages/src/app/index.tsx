@@ -1,15 +1,17 @@
 import './index.css';
 
-import { createRoot } from 'react-dom/client';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
+// eslint-disable-next-line react/no-deprecated
+import { render } from 'react-dom';
 
 import App from './ui/App';
 
 const rootElement = document.getElementsByTagName('main')[0];
 
 rootElement &&
-  createRoot(rootElement).render(
+  render(
     <StrictMode>
       <App />
-    </StrictMode>
+    </StrictMode>,
+    rootElement
   );

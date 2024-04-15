@@ -1,6 +1,6 @@
 import './App.css';
 
-import { memo, useCallback, useState, type FormEventHandler } from 'react';
+import React, { memo, useCallback, useState, type FormEventHandler } from 'react';
 
 import useAppReducer from '../data/useAppReducer';
 import DirectLineProvider from '../directLine/DirectLineProvider';

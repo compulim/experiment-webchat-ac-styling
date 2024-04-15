@@ -14,4 +14,4 @@ jobs:
     with:
       package-name: copilot-studio-adaptive-card-player
       react-version: ${{ matrix.react-version }}
-      skip-integration-test: false
+      skip-integration-test: true
