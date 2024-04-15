@@ -10,7 +10,7 @@ import useWebChatStore from '../directLine/useWebChatStore';
 const { useActivities } = hooks;
 const { Composer } = Components;
 
-const ActivityMonitor_  = memo(function ActivityMonitor_() {
+const ActivityMonitor_ = memo(function ActivityMonitor_() {
   const [activities] = useActivities();
 
   const firstBotMessageActivity = useMemo<(WebChatActivity & { type: 'message' }) | undefined>(
@@ -50,7 +50,7 @@ export default memo(function ActivityMonitor() {
 
   return (
     <Composer directLine={directLine} store={store}>
-      <ActivityMonitor_  />
+      <ActivityMonitor_ />
     </Composer>
   );
 });
