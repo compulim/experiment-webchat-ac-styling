@@ -12,11 +12,11 @@ const { useActivities } = hooks;
 
 type Props = {
   directLine: DirectLineJSBotConnection;
+  onFirstRender?: (() => void) | undefined;
   store?: ReturnType<typeof createStore> | undefined;
-  onFirstRender: undefined | (() => void);
 };
 
-const _ = (props: { onFirstRender: undefined | (() => void) }) => {
+const _ = (props: Pick<Props, 'onFirstRender'>) => {
   const [activities] = useActivities();
 
   const firstBotMessageActivity = useMemo<(WebChatActivity & { type: 'message' }) | undefined>(
@@ -40,9 +40,9 @@ const _ = (props: { onFirstRender: undefined | (() => void) }) => {
     if (!!card && !!props.onFirstRender) {
       props.onFirstRender();
     }
-  }, [card])
+  }, [card]);
 
-  return !!card ? <AdaptiveCardContent content={card} /> : null;
+  return card ? <AdaptiveCardContent content={card} /> : null;
 };
 
 export default memo(function AdaptiveCardPlayer({ directLine, store, onFirstRender }: Props) {

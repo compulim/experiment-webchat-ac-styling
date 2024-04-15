@@ -5,7 +5,7 @@ import AdaptiveCardPlayer from './AdaptiveCardPlayer';
 
 type Props = {
   firstOutgoingMessage?: string | undefined;
-  onFirstRender: undefined | (() => void);
+  onFirstRender?: (() => void) | undefined;
 } & ({ token: string } | { tokenURL: string });
 
 const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerWithAzureBotServices(props: Props) {
@@ -70,7 +70,7 @@ const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerW
     return () => abortController.abort();
   }, []);
 
-  return !!directLine && <AdaptiveCardPlayer onFirstRender={onFirstRender} directLine={directLine} />;
+  return directLine ? <AdaptiveCardPlayer onFirstRender={onFirstRender} directLine={directLine} /> : null;
 });
 
 export default AdaptiveCardPlayerWithAzureBotServices;
