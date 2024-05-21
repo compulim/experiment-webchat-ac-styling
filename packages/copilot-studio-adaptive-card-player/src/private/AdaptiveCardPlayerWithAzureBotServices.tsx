@@ -1,15 +1,16 @@
 import { createDirectLine } from 'botframework-webchat';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, type ReactNode } from 'react';
 
 import AdaptiveCardPlayer from './AdaptiveCardPlayer';
 
 type Props = {
   firstOutgoingMessage?: string | undefined;
   onFirstRender?: (() => void) | undefined;
+  renderLoading?: (() => ReactNode) | undefined;
 } & ({ token: string } | { tokenURL: string });
 
 const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerWithAzureBotServices(props: Props) {
-  const { firstOutgoingMessage, onFirstRender } = props;
+  const { firstOutgoingMessage, onFirstRender, renderLoading } = props;
   const [directLine, setDirectLine] = useState<ReturnType<typeof createDirectLine> | undefined>(undefined);
 
   useEffect(() => {
@@ -70,7 +71,9 @@ const AdaptiveCardPlayerWithAzureBotServices = memo(function AdaptiveCardPlayerW
     return () => abortController.abort();
   }, []);
 
-  return directLine ? <AdaptiveCardPlayer onFirstRender={onFirstRender} directLine={directLine} /> : null;
+  return directLine ? (
+    <AdaptiveCardPlayer directLine={directLine} onFirstRender={onFirstRender} renderLoading={renderLoading} />
+  ) : null;
 });
 
 export default AdaptiveCardPlayerWithAzureBotServices;
